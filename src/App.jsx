@@ -5,19 +5,11 @@ import Header from './components/Header.jsx';
 import {BrowserRouter, HashRouter, Route, Switch} from 'react-router-dom';
 
 import Home from './components/Home.jsx';
-import School from './components/School.jsx';
-import Contact from './components/Contact.jsx'
+import CurrentMenu from './components/CurrentMenu.jsx';
+import FutureMenu from './components/FutureMenu.jsx';
 
 class App extends React.Component {
     render() {
-        let renderContact  = (matchPrams) => {
-
-            matchPrams.lala = 'aaa';
-
-
-            return <Contact {...matchPrams}/>
-        };
-
         return (
             <BrowserRouter>
                 <div>
@@ -25,8 +17,8 @@ class App extends React.Component {
                         <div>
                             <Switch>
                                 <Route exact path="/" component={Home}/>
-                                <Route path="/school" component={School} />
-                                <Route path="/contact" render={(matchPrams) => renderContact(matchPrams) }/>
+                                <Route path="/current" component={CurrentMenu} />
+                                <Route path="/next" component={FutureMenu}/>
                                 <Route render={() => <h1>Page NOT Found</h1>} />
                             </Switch>
                         </div>
