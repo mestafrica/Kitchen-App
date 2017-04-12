@@ -1,0 +1,242 @@
+{
+  "number of Week": 31,
+  "time": "March 7, 2017 - March 13, 2017",
+  "menu": {
+    "1": {
+      "breakfast": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      },
+      "lunch": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      },
+      "dinner": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      }
+    },
+    "2": {
+      "breakfast": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      },
+      "lunch": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      },
+      "dinner": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      }
+    },
+    "3": {
+      "breakfast": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      },
+      "lunch": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      },
+      "dinner": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      }
+    },
+    "4": {
+      "breakfast": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      },
+      "lunch": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      },
+      "dinner": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      }
+    },
+    "5": {
+      "breakfast": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      },
+      "lunch": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      },
+      "dinner": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      }
+    },
+    "6": {
+      "lunch": {
+        "1": {
+          "id": 1,
+          "name": "Fufu"
+        },
+        "2": {
+          "id": 2,
+          "name": "chicken soup"
+        },
+        "3": {
+          "id": 3,
+          "name": "sushi"
+        }
+      }
+    }
+  }
+}
