@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import Footer from './components/Footer.jsx';
 import Header from './components/Header.jsx';
 import {BrowserRouter, HashRouter, Route, Switch} from 'react-router-dom';
