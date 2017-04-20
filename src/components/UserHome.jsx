@@ -16,7 +16,7 @@ class UserHome extends React.Component {
                     <NavLink to='/next'><button>Menu for Next Week</button></NavLink>
                 </div>
             </div>
-        )
+        );
     }
 }
 

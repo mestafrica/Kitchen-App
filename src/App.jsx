@@ -84,8 +84,8 @@ class App extends React.Component {
 
                                 {/* Route for admin  */}
                                 <Route exact path="/admin" component={AdminHome}/>
-                                <Route exact path="/createMeal" component={CreateMeal}/>
-                                <Route exact path="/createMenu" component={CreateMenu}/>
+                                <Route exact path="/createmeal" component={CreateMeal}/>
+                                <Route exact path="/createmenu" component={CreateMenu}/>
                                 <Route exact path="/summary" component={OrderSummary}/>
 
                                 {/* error handling */}
