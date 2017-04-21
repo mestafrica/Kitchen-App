@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Footer from './components/Footer.jsx';
-import Header from './components/Header.jsx';
 import {BrowserRouter, HashRouter, Route, Switch} from 'react-router-dom';
 
-import Home from './components/Home.jsx';
+
+import Footer from './components/Footer.jsx';
+import Header from './components/Header.jsx';
+
+//todo: components for user, this need to be refactor in the future
+import UserHome from './components/UserHome.jsx';
 import CurrentMenu from './components/CurrentMenu.jsx';
 import FutureMenu from './components/FutureMenu.jsx';
+
+//todo: Components for kitchen staff, this need to be refactor
+import AdminHome from './components/AdminHome.jsx';
+import CreateMeal from './components/CreateMeal.jsx';
+import CreateMenu from './components/CreateMenu.jsx';
+import OrderSummary from './components/OrderSummary.jsx';
+
+
 
 //todo: mock data for front-end development, will remove this after we connect api
 import currentWeek from './mock_data/currentWeek.json';
@@ -24,8 +35,6 @@ class App extends React.Component {
     }
 
     componentWillMount() {
-        console.log("component will Mount");
-
         {/* load data*/}
         let currentWeekData = currentWeek;
         let futureWeekData = futureWeek;
@@ -60,20 +69,32 @@ class App extends React.Component {
         };
 
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <div>
                     <Header/>
                         <div>
                             <Switch>
-                                <Route exact path="/" component={Home}/>
+                                {/* todo: default router is set for user home, we need refactor this later */}
+                                <Route exact path="/" component={UserHome}/>
+
+                                {/* Route for users  */}
+                                <Route exact path="/user" component={UserHome}/>
                                 <Route path="/current" render={renderCurrentMenu} />
                                 <Route path="/next" render={renderFutureMenu}/>
+
+                                {/* Route for admin  */}
+                                <Route exact path="/admin" component={AdminHome}/>
+                                <Route exact path="/createmeal" component={CreateMeal}/>
+                                <Route exact path="/createmenu" component={CreateMenu}/>
+                                <Route exact path="/summary" component={OrderSummary}/>
+
+                                {/* error handling */}
                                 <Route render={() => <h1>Page NOT Found</h1>} />
                             </Switch>
                         </div>
                     <Footer/>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         );
     }
 }
