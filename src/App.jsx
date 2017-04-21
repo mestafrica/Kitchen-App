@@ -61,8 +61,8 @@ class App extends React.Component {
         };
 
         return (
-            <BrowserRouter>
-                <div>
+            <HashRouter>
+                <div className="container">
                     <Header/>
                         <div>
                             <Switch>
@@ -74,7 +74,7 @@ class App extends React.Component {
                         </div>
                     <Footer/>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         );
     }
 }

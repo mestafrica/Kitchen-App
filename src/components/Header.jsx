@@ -6,7 +6,7 @@ class Header extends React.Component {
         return (
 
             <div>
-                <h1>MEST Kitchen App</h1>
+                <h3>MEST Kitchen App</h3>
             </div>
         );
     }
