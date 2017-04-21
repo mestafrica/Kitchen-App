@@ -14,6 +14,7 @@ import FutureMenu from './components/FutureMenu.jsx';
 //todo: Components for kitchen staff, this need to be refactor
 import AdminHome from './components/AdminHome.jsx';
 import CreateMeal from './components/CreateMeal.jsx';
+import Meals from './components/Meals';
 import CreateMenu from './components/CreateMenu.jsx';
 import OrderSummary from './components/OrderSummary.jsx';
 
@@ -86,6 +87,7 @@ class App extends React.Component {
                                 <Route exact path="/admin" component={AdminHome}/>
                                 <Route exact path="/createmeal" component={CreateMeal}/>
                                 <Route exact path="/createmenu" component={CreateMenu}/>
+                                <Route exact path="/meals" component={Meals}/>
                                 <Route exact path="/summary" component={OrderSummary}/>
 
                                 {/* error handling */}

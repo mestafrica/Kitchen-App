@@ -1,5 +1,7 @@
 import React from 'react';
 import HTTP from '../services/httpservices'
+import {Link} from 'react-router-dom';
+
 
 
 class CreateMeal extends React.Component {
@@ -20,7 +22,6 @@ class CreateMeal extends React.Component {
     this.refs.name.value ='';
     this.refs.description.value ='';
     let payload = this.state.meals;
-    console.log(payload);
     HTTP.post('/meals', payload)
     .then(data => {
       console.log(data)
@@ -54,7 +55,7 @@ class CreateMeal extends React.Component {
             <label for="formGroupExampleInput2">Description</label>
             <input value={this.state.meals.description} onChange={this.handleChange.bind(this)} ref="description" type="text" className="form-control"/>
           </div>
-           <button type="submit" className="btn btn-primary">Add New Meal</button>
+            <button type="submit" className="btn btn-primary">Add New Meal</button>
         </form>
         {this.state.meals.name}
         {this.state.meals.description}
