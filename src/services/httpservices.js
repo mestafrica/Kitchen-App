@@ -16,6 +16,6 @@ var service = {
       return response.data
     })
   }
-}
+};
 
 export default service;
