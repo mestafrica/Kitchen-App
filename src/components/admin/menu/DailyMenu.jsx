@@ -7,8 +7,8 @@ class DailyMenu extends React.Component {
         super();
 
         this.state = {
-            menu: {}
-
+            menu: {},
+            date: ''
         };
 
         this.handleOnSubmit = this.handleOnSubmit.bind(this);
@@ -28,7 +28,14 @@ class DailyMenu extends React.Component {
             let supper1 = this.refs.supper1.refs.supper1.value;
             let supper2 = this.refs.supper2.refs.supper2.value;
 
+            let date = this.props.date;
+            console.log(date);
+            let year = date.getFullYear();
+            let month = date.getMonth();
+            let day = date.getDate();
+
             this.setState({
+                date: `${year}-${month + 1}-${day}`,
                 menu: {
                     breakfast1,
                     breakfast2,
@@ -48,10 +55,9 @@ class DailyMenu extends React.Component {
 
     renderWeekDay() {
         return (
-
             <div className="panel panel-default">
                 <div className="panel-heading">
-                    {this.props.day}
+                    {this.props.date.toDateString()}
                 </div>
                 <div className="panel-body">
                     <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
@@ -90,7 +96,7 @@ class DailyMenu extends React.Component {
         return (
             <div className="panel panel-default">
                 <div className="panel-heading">
-                    {this.props.day}
+                    {this.props.date.toDateString()}
                 </div>
                 <div className="panel-body">
                     <form className="form-horizontal" onSubmit={this.handleOnSubmit}>

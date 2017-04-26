@@ -14,13 +14,6 @@ class CreateMenu extends React.Component {
     }
 
     componentDidMount() {
-        console.log("did mount");
-
-        let today = new Date();
-        let nextweek = new Date(today.getFullYear(), today.getMonth(), today.getDate()+7);
-        console.log(nextweek);
-
-        //todo: Load meals
         HTTP.get('/meals')
             .then(data => {
                 console.log(data);
@@ -29,22 +22,12 @@ class CreateMenu extends React.Component {
                 });
             }).catch((err) => {
                 console.error(err);
-            })
+            });
     }
 
     render() {
         let meals = this.state.meals;
         let today = new Date();
-
-        {/*if (meals && meals.length > 0) {
-            return(
-                <div>
-                    <WeeklyMenu meals={meals}/>
-                </div>
-            )
-        } else {
-            return <h2>Loading Meals...</h2>
-        }*/}
 
         return (
             <div>

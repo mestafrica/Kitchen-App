@@ -14,7 +14,7 @@ import FutureMenu from './components/FutureMenu.jsx';
 
 //todo: Components for kitchen staff, this need to be refactor
 import AdminHome from './components/admin/AdminHome.jsx';
-import CreateMeal from './components/admin/CreateMeal.jsx';
+import CreateMeal from './components/CreateMeal.jsx';
 import CreateMenu from './components/admin/CreateMenu.jsx';
 import OrderSummary from './components/admin/OrderSummary.jsx';
 
