@@ -22,7 +22,7 @@ class CreateMeal extends React.Component {
     this.refs.name.value ='';
     this.refs.description.value ='';
     let payload = this.state.meals;
-    HTTP.post('/meals', payload)
+      HTTP.post('/meals', payload)
     .then(data => {
       console.log(data)
       if (data.code === 200){
