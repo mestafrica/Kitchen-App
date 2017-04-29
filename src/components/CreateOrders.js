@@ -33,7 +33,9 @@ class CreateOrders extends React.Component {
     console.log(orders)
     return orders.length === 0 ? <div><h6> ...loading </h6></div>
                 :
-                  <div></div>
+                  <div>
+
+                  </div>
 
 
     // return(
