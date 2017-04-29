@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import {BrowserRouter, HashRouter, Route, Switch} from 'react-router-dom';
+
+
 
 import Footer from './components/Footer.jsx';
 import Header from './components/Header.jsx';
@@ -12,17 +13,22 @@ import CurrentMenu from './components/CurrentMenu.jsx';
 import FutureMenu from './components/FutureMenu.jsx';
 
 //todo: Components for kitchen staff, this need to be refactor
-import AdminHome from './components/AdminHome.jsx';
+import AdminHome from './components/admin/AdminHome.jsx';
 import CreateMeal from './components/CreateMeal.jsx';
-import Meals from './components/Meals';
-import CreateMenu from './components/CreateMenu.jsx';
+import CreateMenu from './components/admin/CreateMenu.jsx';
 import OrderSummary from './components/OrderSummary.jsx';
+
+import Meals from './components/Meals.jsx';
 
 
 
 //todo: mock data for front-end development, will remove this after we connect api
 import currentWeek from './mock_data/currentWeek.json';
 import futureWeek from './mock_data/futureWeek.json';
+
+//CSS library
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 
 class App extends React.Component {
     constructor() {
