@@ -1,14 +1,15 @@
 import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
 
-
 class UserHome extends React.Component {
     render() {
+        let user = this.props.user;
+
         return (
             <div>
                 <h2>User Home</h2>
                 {/*todo: We might need put today's kitchen information here*/}
-                <p>information for this week</p>
+                <p>Hi {user? user.displayName: ''}, information for this week</p>
                 <div>
                     <NavLink to='/current'><button>Menu for This week</button></NavLink>
                 </div>
