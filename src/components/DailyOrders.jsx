@@ -71,20 +71,13 @@ class DailyOrders extends React.Component {
   }
 
   renderWeekDay() {
-    // console.log('PROPS', this.props)
-    let order0 = this.props.order0
-    let order1 = this.props.order1
-    // for each of the menu,
-    //get the breakfast option
-    //loop through that can get the meal name for each
-    // console.log('ORDERS', order0)
-    console.log(this.props.ordered)
+
     if (this.props.ordered) {
 
       let breakfast_option = this.props.ordered.breakfast_options;
       let lunch_option = this.props.ordered.lunch_options;
       let supper_option = this.props.ordered.supper_options;
-      console.log(breakfast_option)
+
       var bf = breakfast_option.map(item => {
         return item.meal
       })
@@ -95,10 +88,6 @@ class DailyOrders extends React.Component {
         return item.meal
       })
     }
-    // for (item in )
-
-
-    // console.log('ORDERS', orders)
 
 
       return (
@@ -166,8 +155,6 @@ class DailyOrders extends React.Component {
   }
 
   render() {
-    // console.log("ORDERSs", this.props.orders)
-
     if (this.props.day.toLowerCase() !== 'saturday') {
       return this.renderWeekDay();
     } else {

@@ -12,6 +12,7 @@ class MenuSelection extends React.Component {
     }
 
     render() {
+      console.log('REFS', this.refs)
         let options = this.props.meals.map((meal, index) => {
             return <option key={meal.id} value={meal.id}>{meal.id} - {meal.name}</option>
         });
