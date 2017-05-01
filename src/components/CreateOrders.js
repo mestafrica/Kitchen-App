@@ -1,6 +1,7 @@
 import React from 'react';
 import HTTP from '../services/httpservices'
 import {Link} from 'react-router-dom';
+import WeeklyOrders from './WeeklyOrders'
 
 
 
@@ -13,8 +14,8 @@ class CreateOrders extends React.Component {
   }
 
   componentWillMount() {
-    let startDate = '2017-05-01'
-    let endDate = '2017-05-07'
+    let startDate = '2017-05-08'
+    let endDate = '2017-05-14'
     HTTP.get(`/menus/${startDate}/${endDate}`)
     .then(orders => {
       this.setState({
@@ -30,23 +31,18 @@ class CreateOrders extends React.Component {
 
   render() {
     let orders = this.state.orders;
+    let today = new Date();
     console.log(orders)
-    return orders.length === 0 ? <div><h6> ...loading </h6></div>
-                :
-                  <div>
 
-                  </div>
+    return (
+      <div>
+        <div className="container">
+          <h3>Hello, today is {today.toDateString()}</h3>
+        </div>
+        {orders && orders.length > 0 ? <WeeklyOrders orders={orders}/> : <h2>Loading...</h2>}
+      </div>
+    )
 
-
-    // return(
-    //   <div>
-    //     <div>
-    //       <p>Date</p>
-    //       <div>
-    //
-    //       </div>
-    //     </div>
-    //   </div>
   }
 
 

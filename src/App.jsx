@@ -16,7 +16,6 @@ import FutureMenu from './components/FutureMenu.jsx';
 import AdminHome from './components/admin/AdminHome.jsx';
 import CreateMeal from './components/CreateMeal.jsx';
 import CreateOrders from './components/CreateOrders';
-import Meals from './components/Meals';
 import CreateMenu from './components/admin/CreateMenu.jsx';
 
 import OrderSummary from './components/OrderSummary.jsx';
