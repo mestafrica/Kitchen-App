@@ -1,4 +1,5 @@
 import React from 'react';
+import Firebase from 'firebase';
 
 class Login extends React.Component {
     render() {
