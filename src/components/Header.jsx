@@ -35,18 +35,7 @@ class Header extends React.Component {
     }
 
     render() {
-
-      let headerStyle = {
-        containerStyle: {
-          width: '50%',
-          margin: '0 auto'
-        }
-      }
-        return (
-
-            <div style={headerStyle.containerStyle}>
-                <h3>MEST Kitchen App</h3>
-        let user = this.props.user;
+      let user = this.props.user;
 
         const Login = () => {return <div className="navbar-right"><button  onClick={this.handleLogin}  className="btn btn-default navbar-btn">Login</button></div>};
         const Logout = () => {
