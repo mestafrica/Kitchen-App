@@ -5,15 +5,16 @@ class Footer extends React.Component {
 
       let footerStyle = {
         containerStyle: {
-          width: '50%',
-          margin: '0 auto'
+            backgroundColor: 'yellow'
         }
-      }
-        return (
-            <div style={footerStyle.containerStyle}>
-                <h6> Copyright @MEST 2017</h6>
-            </div>
-        );
+      };
+      return (
+          <div className="container">
+              <footer style={footerStyle.containerStyle} className="footer">
+                  <h3><small> Copyright @MEST 2017</small></h3>
+              </footer>
+          </div>
+      );
     }
 }
 

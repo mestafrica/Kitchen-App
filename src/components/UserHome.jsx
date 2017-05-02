@@ -1,20 +1,32 @@
 import React from 'react';
-import {Link, NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+import Time from '../services/time';
 
 class UserHome extends React.Component {
     render() {
         let user = this.props.user;
 
         return (
-            <div>
-                <h2>User Home</h2>
+            <div className="jumbotron">
                 {/*todo: We might need put today's kitchen information here*/}
-                <p>Hi {user? user.displayName: ''}, information for this week</p>
+                <p className="lead text-center" >{user? `Hi, ${user.displayName}` : ''},  today is {Time.getToday().toDateString()}</p>
+                <p className="lead text-center">
+                    Here is today's menu:
+                    Breakfast:
+                    Lunch:
+                    Dinner:
+                </p>
                 <div>
-                    <NavLink to='/current'><button>Menu for This week</button></NavLink>
-                </div>
-                <div>
-                    <NavLink to='/next'><button>Menu for Next Week</button></NavLink>
+                    <NavLink to='/current'>
+                        <p className="text-center">
+                            <button type="button" className="btn btn-lg btn-success">Order For This Week</button>
+                        </p>
+                    </NavLink>
+                    <NavLink to='/next'>
+                        <p className="text-center">
+                            <button type="button" className="btn btn-lg btn-success">Order For Next Week</button>
+                        </p>
+                    </NavLink>
                 </div>
                 {/* todo: might need more components here*/}
             </div>
