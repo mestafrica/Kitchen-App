@@ -10,7 +10,6 @@ var service = {
     })
   },
   post: function(url, payload) {
-    console.log(payload);
     return axios.post(baseUrl + url, payload)
     .then(function(response) {
       return response.data
