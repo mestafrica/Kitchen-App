@@ -26,7 +26,7 @@ class ViewMeals extends Component {
     return(
       <div>
         <BootstrapTable data={meals} striped={true} hover={true}>
-          <TableHeaderColumn dataField="id" dataSort={true} isKey={true} dataAlign="center">Nos</TableHeaderColumn>
+          <TableHeaderColumn dataField="id" dataSort={true} isKey={true} dataAlign="center">ID</TableHeaderColumn>
           <TableHeaderColumn dataField="name">Name</TableHeaderColumn>
           <TableHeaderColumn dataField="description">Description</TableHeaderColumn>
         </BootstrapTable>
