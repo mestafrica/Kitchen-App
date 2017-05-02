@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import HTTP from '../services/httpservices'
+import HTTP from '../../services/http.js'
 
-
-class Meals extends Component {
+class ViewMeals extends Component {
   constructor() {
     super();
     this.state = {
@@ -15,7 +14,7 @@ class Meals extends Component {
   //Want to be able to get the data
   HTTP.get('/meals')
   .then(data => {
-    console.log(data)
+    console.log(data);
     this.setState({
       meals: data
     });
@@ -23,17 +22,17 @@ class Meals extends Component {
 }
 
   render() {
-    let meals = this.state.meals
+    let meals = this.state.meals;
     return(
       <div>
         <BootstrapTable data={meals} striped={true} hover={true}>
-          <TableHeaderColumn dataField="id" dataSort={true} isKey={true} dataAlign="center">Nos</TableHeaderColumn>
+          <TableHeaderColumn dataField="id" dataSort={true} isKey={true} dataAlign="center">ID</TableHeaderColumn>
           <TableHeaderColumn dataField="name">Name</TableHeaderColumn>
           <TableHeaderColumn dataField="description">Description</TableHeaderColumn>
-       </BootstrapTable>
+        </BootstrapTable>
       </div>
     )
   }
 }
 
-export default Meals;
+export default ViewMeals;
