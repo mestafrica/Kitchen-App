@@ -1,5 +1,5 @@
 import React from 'react';
-import HTTP from '../../../services/httpservices.js';
+import HTTP from '../../../services/http.js';
 import Time from '../../../services/time.js';
 
 import MenuSelection from './MenuSelection.jsx'
@@ -17,11 +17,14 @@ class DailyMenu extends React.Component {
                 lunch_choices: [],
                 supper_choices: []
             },
+            orderSummary: null,
             submit: false
         };
 
         this.handleOnSubmit = this.handleOnSubmit.bind(this);
         this.renderWeekDay = this.renderWeekDay.bind(this);
+        this.renderWeekDayOrderForm = this.renderWeekDayOrderForm.bind(this);
+        this.renderWeekDayOrderSummary = this.renderWeekDayOrderSummary.bind(this);
         this.renderSaturday = this.renderSaturday.bind(this);
     }
 
@@ -64,14 +67,68 @@ class DailyMenu extends React.Component {
                 HTTP.post('/menus', payload)
                     .then( data => {
                         console.log(data);
+
                         this.setState({
+                            orderSummary: data,
                             submit: true
-                        })
-                    })
-                    .catch((err) => console.error(err));
+                        });
+                        console.log(this.state);
+                    }).catch((err) => {
+                        console.error(err)
+                    });
             });
         } else {
             console.warn("Warn: Cannot Create Menu");
+        }
+    }
+    renderWeekDayOrderForm() {
+        return (
+            <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
+                <div className="row">
+                    <h4 className="col-sm-offset-2 col-md-offset-2 col-sm-3 col-md-3">Breakfast</h4>
+                    <h4 className="col-sm-3 col-md-3">Lunch</h4>
+                    <h4 className="col-sm-3 col-md-3">Dinner</h4>
+                </div>
+
+                <div className="form-group">
+                    <label className="col-sm-2 col-md-2 control-label">Option 1: </label>
+                    <MenuSelection ref="breakfast1" referName="breakfast1" meals={this.props.meals} lable={'Breakfast'}/>
+                    <MenuSelection ref="lunch1" referName="lunch1" meals={this.props.meals} lable={'Lunch'}/>
+                    <MenuSelection ref="supper1" referName={'supper1'} meals={this.props.meals} lable={'Supper'}/>
+                </div>
+
+                <div className="form-group">
+                    <label className="col-sm-2 col-md-2 control-label">Option 2: </label>
+                    <MenuSelection ref="breakfast2" referName="breakfast2" meals={this.props.meals} lable={'Breakfast'}/>
+                    <MenuSelection ref="lunch2" referName="lunch2" meals={this.props.meals} lable={'Lunch'}/>
+                    <MenuSelection ref="supper2" referName="supper2" meals={this.props.meals} lable={'Supper'}/>
+                </div>
+
+                <div className="form-group">
+                    <div className="col-sm-offset-2 col-sm-10">
+                        <button type="submit" className="btn btn-default" disabled={this.state.submit}>Submit</button>
+                        {this.state.submit? <h3>This has been submitted</h3>: ''}
+                    </div>
+                </div>
+            </form>
+        )
+    }
+
+    renderWeekDayOrderSummary() {
+        let orderSummary = this.state.orderSummary;
+        if (orderSummary) {
+            let {breakfast_options, lunch_options, supper_options} = orderSummary;
+            console.log(orderSummary);
+
+            return (
+                <div>
+                    <p>Breakfast: {breakfast_options[0].meal.name}, {breakfast_options[1].meal.name}</p>
+                    <p>Lunch: {lunch_options[0].meal.name}, {lunch_options[1].meal.name}</p>
+                    <p>Supper: {supper_options[0].meal.name}, {supper_options[1].meal.name}</p>
+                </div>
+            )
+        } else {
+            <div>Loading...</div>
         }
     }
 
@@ -82,34 +139,7 @@ class DailyMenu extends React.Component {
                     {this.props.date.toDateString()}
                 </div>
                 <div className="panel-body">
-                    <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
-                        <div className="row">
-                            <h4 className="col-sm-offset-2 col-md-offset-2 col-sm-3 col-md-3">Breakfast</h4>
-                            <h4 className="col-sm-3 col-md-3">Lunch</h4>
-                            <h4 className="col-sm-3 col-md-3">Dinner</h4>
-                        </div>
-
-                        <div className="form-group">
-                            <label className="col-sm-2 col-md-2 control-label">Option 1: </label>
-                            <MenuSelection ref="breakfast1" referName="breakfast1" meals={this.props.meals} lable={'Breakfast'}/>
-                            <MenuSelection ref="lunch1" referName="lunch1" meals={this.props.meals} lable={'Lunch'}/>
-                            <MenuSelection ref="supper1" referName={'supper1'} meals={this.props.meals} lable={'Supper'}/>
-                        </div>
-
-                        <div className="form-group">
-                            <label className="col-sm-2 col-md-2 control-label">Option 2: </label>
-                            <MenuSelection ref="breakfast2" referName="breakfast2" meals={this.props.meals} lable={'Breakfast'}/>
-                            <MenuSelection ref="lunch2" referName="lunch2" meals={this.props.meals} lable={'Lunch'}/>
-                            <MenuSelection ref="supper2" referName="supper2" meals={this.props.meals} lable={'Supper'}/>
-                        </div>
-
-                        <div className="form-group">
-                            <div className="col-sm-offset-2 col-sm-10">
-                                <button type="submit" className="btn btn-default" disabled={this.state.submit}>Submit</button>
-                                {this.state.submit? <h3>This has been submitted</h3>: ''}
-                            </div>
-                        </div>
-                    </form>
+                    {this.state.submit? this.renderWeekDayOrderSummary() : this.renderWeekDayOrderForm()}
                 </div>
             </div>
         );

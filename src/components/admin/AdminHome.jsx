@@ -15,7 +15,7 @@ class AdminHome extends React.Component {
                 </p>
                 <p className="text-center">
                     <NavLink to='/viewmeals'>
-                        <button className="btn btn-success btn-lg">View ALl the Meals</button>
+                        <button className="btn btn-success btn-lg">View All the Meals</button>
                     </NavLink>
                 </p>
                 <p className="text-center">

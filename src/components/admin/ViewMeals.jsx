@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import HTTP from '../../services/httpservices'
+import HTTP from '../../services/http.js'
 
 class ViewMeals extends Component {
   constructor() {

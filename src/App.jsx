@@ -9,7 +9,7 @@ import Main from './components/Main.jsx';
 
 //helper
 import {auth, googleAuthProvider, emailAuthProvider, usersRef} from './services/firebase';
-import HTTP from './services/httpservices.js';
+import HTTP from './services/http.js';
 
 //CSS library
 import 'bootstrap/dist/css/bootstrap.css';

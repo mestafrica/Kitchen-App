@@ -1,5 +1,5 @@
 import React from 'react';
-import HTTP from '../services/httpservices'
+import HTTP from '../services/http'
 
 
 class UserOrderSummary extends React.Component {
