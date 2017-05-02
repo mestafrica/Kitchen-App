@@ -43,13 +43,11 @@ class Header extends React.Component {
                 width: '10%'
             };
             return (
-                <div className="container">
-                    <ul className="nav navbar-nav navbar-right">
-                        <li><a href="#">Hi {user.displayName}</a></li>
-                        <li><a href="#">profile pic{/*<img src={user.photoURL} className="img-circle" style={inlineStyle}></img>*/}</a></li>
-                        <li><button onClick={this.handleLogout} className="btn btn-default navbar-btn">Logout</button></li>
-                    </ul>
-                </div>
+                <ul className="nav navbar-nav navbar-right">
+                    <li><a href="#">Hi {user.displayName}</a></li>
+                    <li><a href="#">profile pic{/*<img src={user.photoURL} className="img-circle" style={inlineStyle}></img>*/}</a></li>
+                    <li><button onClick={this.handleLogout} className="btn btn-default navbar-btn">Logout</button></li>
+                </ul>
             );
         };
 

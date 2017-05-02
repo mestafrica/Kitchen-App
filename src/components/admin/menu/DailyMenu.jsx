@@ -1,12 +1,11 @@
 import React from 'react';
 import HTTP from '../../../services/httpservices.js';
+import Time from '../../../services/time.js';
 
 import MenuSelection from './MenuSelection.jsx'
 
 
-//todo: submit for saturday
 //todo: need improve the UI/UX experiences, after submit
-
 class DailyMenu extends React.Component {
     constructor() {
         super();
@@ -30,11 +29,7 @@ class DailyMenu extends React.Component {
         e.preventDefault();
         if (this.refs) {
             let date = this.props.date;
-            let year = date.getFullYear();
-            let month = date.getMonth();
-            let day = date.getDate();
-            let dayOfWeek = date.getDay();
-            let serving_date = `${year}-${month + 1}-${day}`;
+            let serving_date = Time.getServingDate(date);
 
             let lunch1 = this.refs.lunch1.refs.lunch1.value;
             let lunch2 = this.refs.lunch2.refs.lunch2.value;
@@ -42,17 +37,17 @@ class DailyMenu extends React.Component {
             let breakfast1 = '';
             let breakfast2 = '';
 
-            var supper1 = '';
-            var supper2 = '';
+            let supper1 = '';
+            let supper2 = '';
 
-            let isSaturday = dayOfWeek === 6;
+            let isSaturday = Time.isSaturday(date);
 
             if (!isSaturday) {
-                var breakfast1 = this.refs.breakfast1.refs.breakfast1.value;
-                var breakfast2 = this.refs.breakfast2.refs.breakfast2.value;
+                breakfast1 = this.refs.breakfast1.refs.breakfast1.value;
+                breakfast2 = this.refs.breakfast2.refs.breakfast2.value;
 
-                var supper1 = this.refs.supper1.refs.supper1.value;
-                var supper2 = this.refs.supper2.refs.supper2.value;
+                supper1 = this.refs.supper1.refs.supper1.value;
+                supper2 = this.refs.supper2.refs.supper2.value;
             }
 
             this.setState({
@@ -63,7 +58,6 @@ class DailyMenu extends React.Component {
                     supper_choices: isSaturday ? [] : [supper1, supper2]
                 }
             }, () => {
-                console.log(this.state);
                 //todo: create a day menu
                 let payload = this.state.menu;
 

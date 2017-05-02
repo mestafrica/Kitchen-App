@@ -21,13 +21,17 @@ class CreateMeal extends React.Component {
     this.refs.name.value ='';
     this.refs.description.value ='';
     let payload = this.state.meals;
-      HTTP.post('/meals', payload)
-    .then(data => {
-      console.log(data)
-      if (data.code === 200){
-        console.log(success)
-      }
-    })
+
+    HTTP.post('/meals', payload)
+      .then(data => {
+        console.log(data);
+
+        if (data.code === 200){
+          console.log("success");
+        }
+      }).catch((err) => {
+        console.error(err);
+      })
 
   }
 
@@ -45,6 +49,7 @@ class CreateMeal extends React.Component {
     return (
       <div style={{width: '50%', margin: '0 auto'}}>
         <h2>Create Meal</h2>
+
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="form-group">
             <label>Name of Meal</label>
@@ -52,10 +57,12 @@ class CreateMeal extends React.Component {
           </div>
           <div className="form-group">
             <label>Description</label>
-            <textarea rows="3" value={this.state.meals.description} onChange={this.handleChange.bind(this)} ref="description" type="text" className="form-control"/>
+            <textarea rows="3
+            " value={this.state.meals.description} onChange={this.handleChange.bind(this)} ref="description" type="text" className="form-control"/>
           </div>
             <button type="submit" className="btn btn-primary">Add New Meal</button>
         </form>
+
         {this.state.meals.name}
         {this.state.meals.description}
       </div>

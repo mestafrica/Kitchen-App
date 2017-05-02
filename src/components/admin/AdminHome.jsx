@@ -3,6 +3,7 @@ import {NavLink} from 'react-router-dom';
 
 class AdminHome extends React.Component {
     render() {
+        console.log("admin home");
         return (
             <div>
                 <h2>Admin Home</h2>

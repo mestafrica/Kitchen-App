@@ -10,7 +10,7 @@ import FutureMenu from './FutureMenu.jsx';
 import AdminHome from './admin/AdminHome.jsx';
 import CreateMeal from './admin/CreateMeal.jsx';
 import CreateMenu from './admin/CreateMenu.jsx';
-import OrderSummary from './OrderSummary.jsx';
+import UserOrderSummary from './UserOrderSummary.jsx';
 import ViewMeals from './admin/ViewMeals.jsx';
 
 //CSS library
@@ -29,7 +29,7 @@ class Main extends React.Component {
         this.renderUserHome = this.renderUserHome.bind(this);
         this.renderCurrentMenu = this.renderCurrentMenu.bind(this);
         this.renderFutureMenu = this.renderFutureMenu.bind(this);
-        this.renderOrderSummary = this.renderOrderSummary.bind(this);
+        this.renderUserOrderSummary = this.renderUserOrderSummary.bind(this);
     }
 
     componentWillMount() {
@@ -48,8 +48,8 @@ class Main extends React.Component {
         return <FutureMenu {...matchParams}  />
     }
 
-    renderOrderSummary(matchParams) {
-        return <OrderSummary {...matchParams} user={this.props.user}/>
+    renderUserOrderSummary(matchParams) {
+        return <UserOrderSummary {...matchParams} user={this.props.user}/>
     }
 
 
@@ -67,7 +67,7 @@ class Main extends React.Component {
                             <Route exact path="/user" render={this.renderUserHome} />
                             <Route path="/current" render={this.renderCurrentMenu} />
                             <Route path="/next" render={this.renderFutureMenu}/>
-                            <Route exact path="/summary" render={this.renderOrderSummary}/>
+                            <Route exact path="/usersummary" render={this.renderUserOrderSummary}/>
 
                             {/* Route for admin  */}
                             <Route exact path="/admin" component={AdminHome}/>

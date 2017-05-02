@@ -8,14 +8,16 @@ class UserHome extends React.Component {
 
         return (
             <div className="jumbotron">
-                {/*todo: We might need put today's kitchen information here*/}
                 <p className="lead text-center" >{user? `Hi, ${user.displayName}` : ''},  today is {Time.getToday().toDateString()}</p>
+
+                {/*todo: We might need put today's kitchen information here*/}
                 <p className="lead text-center">
                     Here is today's menu:
                     Breakfast:
                     Lunch:
                     Dinner:
                 </p>
+
                 <div>
                     <NavLink to='/current'>
                         <p className="text-center">
@@ -28,7 +30,6 @@ class UserHome extends React.Component {
                         </p>
                     </NavLink>
                 </div>
-                {/* todo: might need more components here*/}
             </div>
         );
     }

@@ -11,7 +11,7 @@ class Footer extends React.Component {
       return (
           <div className="container">
               <footer style={footerStyle.containerStyle} className="footer">
-                  <h3><small> Copyright @MEST 2017</small></h3>
+                  <p className="text-center"><small> Copyright @MEST 2017</small></p>
               </footer>
           </div>
       );

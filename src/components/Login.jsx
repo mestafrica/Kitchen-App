@@ -8,12 +8,8 @@ class Login extends React.Component {
         });
 
         auth.signInWithPopup(googleAuthProvider)
-            .then((result) => {
-                console.log(result);
-            })
-            .catch((err) => {
-                console.error(err);
-            });
+            .then((result) => {})
+            .catch((err) => {console.error(err)});
     }
 
     render() {
@@ -23,7 +19,7 @@ class Login extends React.Component {
                     <p className="lead text-center alert alert-warning">Chale, please Signin to Use Kitchen App</p>
                     <p className="text-center"><button type="button" className="btn btn-lg btn-success" onClick={this.handleLogin}>Log In</button></p>
                 </div>
-                </div>
+            </div>
         );
     }
 }
