@@ -13,6 +13,15 @@ class DailyOrders extends React.Component {
       },
     submit: false
     }
+    this.handleOnSubmit = this.handleOnSubmit.bind(this)
+    this.handleOnChange = this.handleOnChange.bind(this)
+  }
+
+  handleOnChange(e) {
+    console.log(e.target.value)
+    this.setState({
+      order: e.target.value
+    })
   }
 
   handleOnSubmit(e) {
@@ -105,7 +114,7 @@ class DailyOrders extends React.Component {
 
                       <div className="form-group">
                           <label className="col-sm-2 col-md-2 control-label">Options: </label>
-                          <OrderSelection ref="breakfast1" orders={bf} referName="breakfast1" lable={'Breakfast'}/>
+                          <OrderSelection handleOnChange={this.handleOnChange} ref="breakfast1" orders={bf} referName="breakfast1" lable={'Breakfast'}/>
                           <OrderSelection ref="lunch1" referName="lunch1" orders={lunch} lable={'Lunch'}/>
                           <OrderSelection ref="supper1" referName={'supper1'} orders={supper} lable={'Supper'}/>
                       </div>
