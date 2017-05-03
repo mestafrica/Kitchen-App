@@ -165,6 +165,7 @@ class App extends React.Component {
                             <Route exact path="/admin" component={AdminHome}/>
                             <Route exact path="/createmeal" component={CreateMeal}/>
                             <Route exact path="/createmenu" component={CreateMenu}/>
+                            <Route exact path="/createorders" component={CreateOrders}/>
                             <Route exact path="/meals" component={Meals}/>
                             <Route exact path="/summary" component={OrderSummary}/>
 

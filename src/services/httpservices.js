@@ -11,6 +11,7 @@ var service = {
   },
   post: function(url, payload) {
     return axios.post(baseUrl + url, payload)
+    console.log('initialising post')
     .then(function(response) {
       return response.data
     })

@@ -1,5 +1,6 @@
 import React from 'react';
 import OrderSelection from './OrderSelection'
+import HTTP from '../services/httpservices'
 class DailyOrders extends React.Component {
   constructor() {
     super();
@@ -18,51 +19,70 @@ class DailyOrders extends React.Component {
   }
 
   handleOnChange(e) {
-    console.log(e.target.value)
-    this.setState({
-      order: e.target.value
-    })
+
+      let date = this.props.date;
+      let year = date.getFullYear();
+      let month = date.getMonth();
+      let day = date.getDate();
+      let dayOfWeek = date.getDay();
+      let serving_date = `${year}-${month + 1}-${day}`;
+
+      let breakfast_id = this.refs.breakfast1.refs.breakfast1.value;
+      let lunch_id = this.refs.lunch1.refs.lunch1.value;
+      let supper_id = this.refs.supper1.refs.supper1.value;
+
+      this.setState({
+        orders: {
+          user_id: null,
+          serving_date,
+          breakfast_id,
+          lunch_id,
+          supper_id
+        }
+      })
+
+
   }
 
   handleOnSubmit(e) {
-      e.preventDefault();
-      if (this.refs) {
-          let date = this.props.date;
-          let year = date.getFullYear();
-          let month = date.getMonth();
-          let day = date.getDate();
-          let dayOfWeek = date.getDay();
-          let serving_date = `${year}-${month + 1}-${day}`;
-
-          let lunch1 = this.refs.lunch1.refs.lunch1.value;
-          let lunch2 = this.refs.lunch2.refs.lunch2.value;
-
-          let breakfast1 = '';
-          let breakfast2 = '';
-
-          var supper1 = '';
-          var supper2 = '';
-
-          let isSaturday = dayOfWeek === 6;
-
-          if (!isSaturday) {
-              var breakfast1 = this.refs.breakfast1.refs.breakfast1.value;
-              var breakfast2 = this.refs.breakfast2.refs.breakfast2.value;
-
-              var supper1 = this.refs.supper1.refs.supper1.value;
-              var supper2 = this.refs.supper2.refs.supper2.value;
-          }
-
-          this.setState({
-              orders: {
-                  serving_date,
-                  breakfast_id: isSaturday ? [] : [breakfast1, breakfast2],
-                  lunch_id: [lunch1, lunch2],
-                  supper_id: isSaturday ? [] : [supper1, supper2]
-              }
-          }, () => {
-              console.log(this.state);
-              //todo: create a day menu
+      // e.preventDefault();
+      // if (this.refs) {
+      //     let date = this.props.date;
+      //     let year = date.getFullYear();
+      //     let month = date.getMonth();
+      //     let day = date.getDate();
+      //     let dayOfWeek = date.getDay();
+      //     let serving_date = `${year}-${month + 1}-${day}`;
+      //
+      //     let lunch1 = this.refs.lunch1.refs.lunch1.value;
+      //     let lunch2 = this.refs.lunch2.refs.lunch2.value;
+      //
+      //     let breakfast1 = '';
+      //     let breakfast2 = '';
+      //
+      //     var supper1 = '';
+      //     var supper2 = '';
+      //
+      //     let isSaturday = dayOfWeek === 6;
+      //
+      //     if (!isSaturday) {
+      //         var breakfast1 = this.refs.breakfast1.refs.breakfast1.value;
+      //         var breakfast2 = this.refs.breakfast2.refs.breakfast2.value;
+      //
+      //         var supper1 = this.refs.supper1.refs.supper1.value;
+      //         var supper2 = this.refs.supper2.refs.supper2.value;
+      //     }
+      //
+      //     this.setState({
+      //         orders: {
+      //             serving_date,
+      //             breakfast_id: isSaturday ? [] : [breakfast1, breakfast2],
+      //             lunch_id: [lunch1, lunch2],
+      //             supper_id: isSaturday ? [] : [supper1, supper2]
+      //         }
+      //     }, () => {
+      //         console.log(this.state);
+      //         //todo: create a day menu
               let payload = this.state.orders;
 
               HTTP.post('/orders', payload)
@@ -73,13 +93,10 @@ class DailyOrders extends React.Component {
                       })
                   })
                   .catch((err) => console.error(err));
-          });
-      } else {
-          console.warn("Warn: Cannot Create Menu");
-      }
   }
 
   renderWeekDay() {
+    console.log(this.state.orders)
 
     if (this.props.ordered) {
 
@@ -115,13 +132,13 @@ class DailyOrders extends React.Component {
                       <div className="form-group">
                           <label className="col-sm-2 col-md-2 control-label">Options: </label>
                           <OrderSelection handleOnChange={this.handleOnChange} ref="breakfast1" orders={bf} referName="breakfast1" lable={'Breakfast'}/>
-                          <OrderSelection ref="lunch1" referName="lunch1" orders={lunch} lable={'Lunch'}/>
-                          <OrderSelection ref="supper1" referName={'supper1'} orders={supper} lable={'Supper'}/>
+                          <OrderSelection handleOnChange={this.handleOnChange} ref="lunch1" referName="lunch1" orders={lunch} lable={'Lunch'}/>
+                          <OrderSelection handleOnChange={this.handleOnChange} ref="supper1" referName='supper1' orders={supper} lable={'Supper'}/>
                       </div>
 
                       <div className="form-group">
                           <div className="col-sm-offset-2 col-sm-10">
-                              <button type="submit" className="btn btn-default" disabled={this.state.submit}>Submit</button>
+                              <button onClick={this.handleOnSubmit} type="submit" className="btn btn-default" disabled={this.state.submit}>Submit</button>
                               {this.state.submit? <h3>This has been submitted</h3>: ''}
                           </div>
                       </div>
