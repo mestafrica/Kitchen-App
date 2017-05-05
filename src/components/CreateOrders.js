@@ -1,5 +1,5 @@
 import React from 'react';
-import HTTP from '../services/httpservices'
+import HTTP from '../services/http'
 import {Link} from 'react-router-dom';
 import WeeklyOrders from './WeeklyOrders'
 
@@ -39,7 +39,7 @@ class CreateOrders extends React.Component {
         <div className="container">
           <h3>Hello, today is {today.toDateString()}</h3>
         </div>
-        {orders && orders.length > 0 ? <WeeklyOrders orders={orders}/> : <h2>Loading...</h2>}
+        {orders && orders.length > 0 ? <WeeklyOrders user={this.props.user} orders={orders}/> : <h2>Loading...</h2>}
       </div>
     )
 

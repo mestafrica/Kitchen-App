@@ -13,7 +13,6 @@ class OrderSelection extends React.Component {
     if (this.props.orders) {
       let orders = this.props.orders
 
-
     options = orders.map((order, index) => {
       return <option key={order.id} value={order.id}>{order.name}</option>
     });

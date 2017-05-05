@@ -43,17 +43,17 @@ class Header extends React.Component {
                 width: '10%'
             };
             return (
-                <div className=" navbar-right">
-                    <div className="navbar-text"><img src={user.photoURL} style={inlineStyle}></img></div>
-                    <div className="navbar-text">Hi {user.displayName}</div>
-                        <button onClick={this.handleLogout}  className="btn btn-default navbar-btn">Logout</button>
-                    </div>
+                <ul className="nav navbar-nav navbar-right">
+                    <li><a href="#">Hi {user.displayName}</a></li>
+                    <li><a href="#">profile pic{/*<img src={user.photoURL} className="img-circle" style={inlineStyle}></img>*/}</a></li>
+                    <li><button onClick={this.handleLogout} className="btn btn-default navbar-btn">Logout</button></li>
+                </ul>
             );
         };
 
         return (
             <div className="container">
-                <nav className="navbar navbar-default">
+                <nav className="navbar navbar-default clearfix">
                     <div className="container-fluid">
                         <div>
                             <div className="navbar-header">

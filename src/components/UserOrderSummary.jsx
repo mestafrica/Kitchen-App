@@ -1,8 +1,8 @@
 import React from 'react';
-import HTTP from '../services/httpservices'
+import HTTP from '../services/http'
 
 
-class OrderSummary extends React.Component {
+class UserOrderSummary extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -64,4 +64,4 @@ class OrderSummary extends React.Component {
     }
 }
 
-export default OrderSummary;
+export default UserOrderSummary;
