@@ -4,6 +4,7 @@ import {BrowserRouter, HashRouter, Route, Switch} from 'react-router-dom';
 //todo: components for user, this need to be refactor in the future
 import UserHome from './UserHome.jsx';
 import CurrentMenu from './CurrentMenu.jsx';
+import CreateOrders from './CreateOrders';
 import FutureMenu from './FutureMenu.jsx';
 
 //todo: Components for kitchen staff, this need to be refactor
@@ -30,6 +31,7 @@ class Main extends React.Component {
         this.renderCurrentMenu = this.renderCurrentMenu.bind(this);
         this.renderFutureMenu = this.renderFutureMenu.bind(this);
         this.renderUserOrderSummary = this.renderUserOrderSummary.bind(this);
+        this.renderCreateOrders = this.renderCreateOrders.bind(this);
     }
 
     componentWillMount() {
@@ -52,6 +54,10 @@ class Main extends React.Component {
         return <UserOrderSummary {...matchParams} user={this.props.user}/>
     }
 
+    renderCreateOrders(matchParams) {
+      return <CreateOrders {...matchParams} user={this.props.user}/>
+    }
+
 
     render() {
         let {user} = this.props;
@@ -67,6 +73,7 @@ class Main extends React.Component {
                             <Route exact path="/user" render={this.renderUserHome} />
                             <Route path="/current" render={this.renderCurrentMenu} />
                             <Route path="/next" render={this.renderFutureMenu}/>
+                            <Route exact path="/createorders" render={this.renderCreateOrders}/>
                             <Route exact path="/usersummary" render={this.renderUserOrderSummary}/>
 
                             {/* Route for admin  */}

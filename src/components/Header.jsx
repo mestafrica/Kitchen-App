@@ -35,7 +35,7 @@ class Header extends React.Component {
     }
 
     render() {
-        let user = this.props.user;
+      let user = this.props.user;
 
         const Login = () => {return <div className="navbar-right"><button  onClick={this.handleLogin}  className="btn btn-default navbar-btn">Login</button></div>};
         const Logout = () => {
