@@ -94,7 +94,6 @@ class DailyOrders extends React.Component {
                   <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
                       <div className="row">
                           <h4 className="col-sm-offset-2 col-md-offset-2 col-sm-3 col-md-3">Lunch</h4>
-                          {/* <h4 className="col-sm-3 col-md-3">Lunch</h4> */}
                           <h4 className="col-sm-3 col-md-3">Dinner</h4>
                       </div>
 
