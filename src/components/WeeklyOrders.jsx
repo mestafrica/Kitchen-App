@@ -39,7 +39,7 @@ class WeeklyOrders extends React.Component {
         <DailyOrders user={this.props.user} ordered={orders[2]} day={"Wednesday"} date={wednesday} />
         <DailyOrders user={this.props.user} ordered={orders[3]} day={"Thursday"} date={thursday} />
         <DailyOrders user={this.props.user} ordered={orders[4]} day={"Friday"} date={friday} />
-        <DailyOrders user={this.props.user} ordered={orders[5]} day={"Saturday"} date={saturday} />
+        {/* <DailyOrders user={this.props.user} ordered={orders[5]} day={"Saturday"} date={saturday} /> */}
       </div>
     )
   }

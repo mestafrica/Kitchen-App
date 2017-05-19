@@ -33,9 +33,9 @@ class DailyOrders extends React.Component {
         let day = date.getDate();
         let dayOfWeek = date.getDay();
         let serving_date = `${year}-${month + 1}-${day}`;
-        console.log(this.refs.breakfast1.refs)
-
-        let breakfast_id = this.refs.breakfast1.refs.breakfast1.value;
+        // console.log(this.refs.breakfast1.refs)
+        let breakfast_id = "1";
+        // let breakfast_id = this.refs.breakfast1.refs.breakfast1.value;
         let lunch_id = this.refs.lunch1.refs.lunch1.value;
         let supper_id = this.refs.supper1.refs.supper1.value;
 
@@ -93,14 +93,13 @@ class DailyOrders extends React.Component {
               <div className="panel-body">
                   <form className="form-horizontal" onSubmit={this.handleOnSubmit}>
                       <div className="row">
-                          <h4 className="col-sm-offset-2 col-md-offset-2 col-sm-3 col-md-3">Breakfast</h4>
-                          <h4 className="col-sm-3 col-md-3">Lunch</h4>
+                          <h4 className="col-sm-offset-2 col-md-offset-2 col-sm-3 col-md-3">Lunch</h4>
                           <h4 className="col-sm-3 col-md-3">Dinner</h4>
                       </div>
 
                       <div className="form-group">
                           <label className="col-sm-2 col-md-2 control-label">Options: </label>
-                          <OrderSelection handleOnChange={this.handleOnChange} ref="breakfast1" orders={bf} referName="breakfast1" lable={'Breakfast'}/>
+                          {/* <OrderSelection handleOnChange={this.handleOnChange} ref="breakfast1" orders={bf} referName="breakfast1" lable={'Breakfast'}/> */}
                           <OrderSelection handleOnChange={this.handleOnChange} ref="lunch1" referName="lunch1" orders={lunch} lable={'Lunch'}/>
                           <OrderSelection handleOnChange={this.handleOnChange} ref="supper1" referName='supper1' orders={supper} lable={'Supper'}/>
                       </div>
