@@ -1,0 +1,17 @@
+.header-logo {
+
+}
+
+.header-logo img {
+    margin-top: -3%;
+    width: 65%;
+}
+
+.menu-list {
+    margin-left: -7% !important;
+}
+
+.active {
+    background-color: #DDD;
+    text-decoration: underline;
+}

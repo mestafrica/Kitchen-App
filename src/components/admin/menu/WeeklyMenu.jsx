@@ -27,7 +27,7 @@ class WeeklyMenu extends React.Component {
                 <DailyMenu meals={meals} day={"Wednesday"} date={wednesday}/>
                 <DailyMenu meals={meals} day={"Thursday"} date={thursday}/>
                 <DailyMenu meals={meals} day={"Friday"} date={friday}/>
-                <DailyMenu meals={meals} day={"Saturday"} date={saturday} />
+                {/*<DailyMenu meals={meals} day={"Saturday"} date={saturday} />*/}
             </div>
         )
     }
