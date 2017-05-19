@@ -18,7 +18,7 @@ class MenuSelection extends React.Component {
         });
 
         return (
-            <div className="col-sm-3 col-md-3 ">
+            <div className="col-sm-5 col-md-5 ">
                 <select ref={this.props.referName} className="form-control" name="breakfast" onChange={this.handleOnChange}>
                     {options}
                 </select>

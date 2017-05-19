@@ -6,13 +6,15 @@ import UserHome from './UserHome.jsx';
 import CurrentMenu from './CurrentMenu.jsx';
 import CreateOrders from './CreateOrders';
 import FutureMenu from './FutureMenu.jsx';
+import UserOrderSummary from './UserOrderSummary.jsx';
+
 
 //todo: Components for kitchen staff, this need to be refactor
 import AdminHome from './admin/AdminHome.jsx';
 import CreateMeal from './admin/CreateMeal.jsx';
 import CreateMenu from './admin/CreateMenu.jsx';
-import UserOrderSummary from './UserOrderSummary.jsx';
 import ViewMeals from './admin/ViewMeals.jsx';
+import AdminOrderSummary from './admin/AdminOrderSummary.jsx';
 
 //CSS library
 import 'bootstrap/dist/css/bootstrap.css';
@@ -31,6 +33,7 @@ class Main extends React.Component {
         this.renderCurrentMenu = this.renderCurrentMenu.bind(this);
         this.renderFutureMenu = this.renderFutureMenu.bind(this);
         this.renderUserOrderSummary = this.renderUserOrderSummary.bind(this);
+        this.renderAdminOrderSummary = this.renderAdminOrderSummary.bind(this);
         this.renderCreateOrders = this.renderCreateOrders.bind(this);
     }
 
@@ -52,6 +55,11 @@ class Main extends React.Component {
 
     renderUserOrderSummary(matchParams) {
         return <UserOrderSummary {...matchParams} user={this.props.user}/>
+    }
+
+    renderAdminOrderSummary(matchParams) {
+        console.log(this.props);
+        return <AdminOrderSummary {...matchParams} user={this.props.user}/>
     }
 
     renderCreateOrders(matchParams) {
@@ -81,6 +89,8 @@ class Main extends React.Component {
                             <Route exact path="/createmeal" component={CreateMeal}/>
                             <Route exact path="/createmenu" component={CreateMenu}/>
                             <Route exact path="/viewmeals" component={ViewMeals}/>
+                            <Route exact path="/adminsummary" render={this.renderAdminOrderSummary}/>
+
 
                             {/* error handling */}
                             <Route render={() => <h1>Page NOT Found</h1>} />
