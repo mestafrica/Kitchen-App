@@ -1,6 +1,5 @@
 import React from 'react';
-import HTTP from '../services/httpservices'
-import {Link} from 'react-router-dom';
+import HTTP from '../../services/http'
 
 
 
@@ -22,13 +21,17 @@ class CreateMeal extends React.Component {
     this.refs.name.value ='';
     this.refs.description.value ='';
     let payload = this.state.meals;
-      HTTP.post('/meals', payload)
-    .then(data => {
-      console.log(data)
-      if (data.code === 200){
-        console.log(success)
-      }
-    })
+
+    HTTP.post('/meals', payload)
+      .then(data => {
+        console.log(data);
+
+        if (data.code === 200){
+          console.log("success");
+        }
+      }).catch((err) => {
+        console.error(err);
+      })
 
   }
 
@@ -46,17 +49,20 @@ class CreateMeal extends React.Component {
     return (
       <div style={{width: '50%', margin: '0 auto'}}>
         <h2>Create Meal</h2>
+
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="form-group">
-            <label for="formGroupExampleInput">Name of Meal</label>
+            <label>Name of Meal</label>
             <input value={this.state.meals.name} onChange={this.handleChange.bind(this)} ref="name" type="text" className="form-control"/>
           </div>
           <div className="form-group">
-            <label for="formGroupExampleInput2">Description</label>
-            <input value={this.state.meals.description} onChange={this.handleChange.bind(this)} ref="description" type="text" className="form-control"/>
+            <label>Description</label>
+            <textarea rows="3
+            " value={this.state.meals.description} onChange={this.handleChange.bind(this)} ref="description" type="text" className="form-control"/>
           </div>
             <button type="submit" className="btn btn-primary">Add New Meal</button>
         </form>
+
         {this.state.meals.name}
         {this.state.meals.description}
       </div>
