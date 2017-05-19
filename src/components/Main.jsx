@@ -73,7 +73,7 @@ class Main extends React.Component {
                             <Route exact path="/user" render={this.renderUserHome} />
                             <Route path="/current" render={this.renderCurrentMenu} />
                             <Route path="/next" render={this.renderFutureMenu}/>
-                            <Route exact path="/next" render={this.renderCreateOrders}/>
+                            <Route exact path="/createorders" render={this.renderCreateOrders}/>
                             <Route exact path="/usersummary" render={this.renderUserOrderSummary}/>
 
                             {/* Route for admin  */}
