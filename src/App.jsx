@@ -104,6 +104,7 @@ class App extends React.Component {
 
     render() {
         let {user} = this.state;
+
         return (
             <HashRouter>
                 <div className="container">

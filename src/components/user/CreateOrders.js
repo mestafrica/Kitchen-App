@@ -1,5 +1,5 @@
 import React from 'react';
-import HTTP from '../services/http'
+import HTTP from '../../services/http'
 import {Link} from 'react-router-dom';
 import WeeklyOrders from './WeeklyOrders'
 
