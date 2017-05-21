@@ -1,5 +1,5 @@
 import React from 'react';
-import HTTP from '../services/http'
+import HTTP from '../../services/http'
 
 
 class UserOrderSummary extends React.Component {
@@ -36,6 +36,7 @@ class UserOrderSummary extends React.Component {
       let orderOne = orders[0]
       //var ordered = '...loading';
       //var users = 'user'
+
       if (orders && orderOne) {
         let ordered = orderOne;
         let {user, breakfast, lunch, supper} = orderOne;

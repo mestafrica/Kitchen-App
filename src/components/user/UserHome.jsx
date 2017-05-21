@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import Time from '../services/time.js';
-import HTTP from '../services/http.js'
+import Time from '../../services/time.js';
+import HTTP from '../../services/http.js'
 
 class UserHome extends React.Component {
 
