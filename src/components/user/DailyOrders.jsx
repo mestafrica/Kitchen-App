@@ -1,6 +1,6 @@
 import React from 'react';
 import OrderSelection from './OrderSelection'
-import HTTP from '../services/http'
+import HTTP from '../../services/http'
 class DailyOrders extends React.Component {
   constructor() {
     super();

@@ -1,5 +1,5 @@
 import React from 'react';
-import HTTP from '../services/http'
+import HTTP from '../../services/http'
 import {Link} from 'react-router-dom';
 import WeeklyOrders from './WeeklyOrders'
 
@@ -14,8 +14,8 @@ class CreateOrders extends React.Component {
   }
 
   componentWillMount() {
-    let startDate = '2017-05-08'
-    let endDate = '2017-05-14'
+    let startDate = '2017-05-22'
+    let endDate = '2017-05-27'
     HTTP.get(`/menus/${startDate}/${endDate}`)
     .then(orders => {
       this.setState({

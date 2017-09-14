@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import Time from '../services/time.js';
-import HTTP from '../services/http.js'
+import Time from '../../services/time.js';
+import HTTP from '../../services/http.js'
 
 class UserHome extends React.Component {
 
@@ -40,7 +40,7 @@ class UserHome extends React.Component {
                             <button type="button" className="btn btn-lg btn-success">Order For This Week</button>
                         </p>
                     </NavLink>
-                    <NavLink to='/next'>
+                    <NavLink to='/createorders'>
                         <p className="text-center">
                             <button type="button" className="btn btn-lg btn-success">Order For Next Week</button>
                         </p>

@@ -1,5 +1,8 @@
 import React from 'react';
-import HTTP from '../../services/http'
+import HTTP from '../../services/http';
+import Time from '../../services/time';
+
+import WeeklySummary from './summary/WeeklySummary.jsx';
 
 
 class AdminOrderSummary extends React.Component {
@@ -11,30 +14,27 @@ class AdminOrderSummary extends React.Component {
     }
 
     componentWillMount() {
-    //Want to be able to get the data
-      /*HTTP.get('/orders')
-      .then(data => {
-        // console.log(data)
-        this.setState({
-          orders: data
-        });
-      })*/
     }
 
     render() {
 
-        //let today = Time.getToday();
-        //let monday = Time.getNextMonday(today);
-        //let tuesday = Time.getNextTuesday(today);
-        //let wednesday = Time.getNextWednesday(today);
-        //let thursday = Time.getNextThursday(today);
-        //let friday = Time.getNextFriday(today);
+        let today = Time.getToday();
+        let monday = Time.getNextMonday(today);
+        let tuesday = Time.getNextTuesday(today);
+        let wednesday = Time.getNextWednesday(today);
+        let thursday = Time.getNextThursday(today);
+        let friday = Time.getNextFriday(today);
 
         return (
-            <h2>admin summary</h2>
+            <div>
+                <h2>admin summary</h2>
+                <h3>Next Week: {monday.toDateString()} - {friday.toDateString()}</h3>
+
+                <WeeklySummary />
+            </div>
         )
 
     }
 }
 
-export default AdminOrderSummary;
+export default AdminOrderSummary

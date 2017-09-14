@@ -3,15 +3,19 @@
 }
 
 .header-logo img {
-    margin-top: -3%;
-    width: 65%;
+    margin-top: 0;
+    width: 40%;
 }
 
 .menu-list {
-    margin-left: -7% !important;
+    margin-left: -15% !important;
 }
 
 .active {
     background-color: #DDD;
     text-decoration: underline;
+}
+
+.navbar-right-btn {
+   margin-right: 5px;
 }

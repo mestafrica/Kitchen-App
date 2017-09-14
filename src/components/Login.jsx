@@ -1,6 +1,9 @@
 import React from 'react';
 import {auth, googleAuthProvider} from '../services/firebase';
 
+import './Login.css'
+import mestKitchenLogoImg from './mestkitchenlogo.png';
+
 class Login extends React.Component {
     handleLogin() {
         googleAuthProvider.setCustomParameters({
@@ -13,15 +16,20 @@ class Login extends React.Component {
     }
 
     render() {
+
         return (
-            <div className="container">
-                <div className="jumbotron">
-                    <p className="lead text-center alert alert-warning">Chale, please Signin to Use Kitchen App</p>
-                    <p className="text-center"><button type="button" className="btn btn-lg btn-success" onClick={this.handleLogin}>Log In</button></p>
-                </div>
+            <div className="login" >
+                <p className="text-center logo-image">
+                    <img src={mestKitchenLogoImg} alt=""/>
+                </p>
+                <p className="text-center login-btn">
+                    <button type="button" className="btn btn-lg btn-success" onClick={this.handleLogin}>Log In</button>
+                </p>
             </div>
+
+
         );
     }
 }
 
-export default Login
+export default Login;

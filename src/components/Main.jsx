@@ -2,11 +2,11 @@ import React from 'react';
 import {BrowserRouter, HashRouter, Route, Switch} from 'react-router-dom';
 
 //todo: components for user, this need to be refactor in the future
-import UserHome from './UserHome.jsx';
-import CurrentMenu from './CurrentMenu.jsx';
-import CreateOrders from './CreateOrders';
-import FutureMenu from './FutureMenu.jsx';
-import UserOrderSummary from './UserOrderSummary.jsx';
+import UserHome from './user/UserHome.jsx';
+import CurrentMenu from './user/CurrentMenu.jsx';
+import CreateOrders from './user/CreateOrders';
+import FutureMenu from './user/FutureMenu.jsx';
+import UserOrderSummary from './user/UserOrderSummary.jsx';
 
 
 //todo: Components for kitchen staff, this need to be refactor
@@ -81,16 +81,15 @@ class Main extends React.Component {
                             <Route exact path="/user" render={this.renderUserHome} />
                             <Route path="/current" render={this.renderCurrentMenu} />
                             <Route path="/next" render={this.renderFutureMenu}/>
-                            <Route exact path="/next" render={this.renderCreateOrders}/>
+                            <Route exact path="/createorders" render={this.renderCreateOrders}/>
                             <Route exact path="/usersummary" render={this.renderUserOrderSummary}/>
 
                             {/* Route for admin  */}
                             <Route exact path="/admin" component={AdminHome}/>
                             <Route exact path="/createmeal" component={CreateMeal}/>
-                            <Route exact path="/createmenu" component={CreateMenu}/>
                             <Route exact path="/viewmeals" component={ViewMeals}/>
+                            <Route exact path="/createmenu" component={CreateMenu}/>
                             <Route exact path="/adminsummary" render={this.renderAdminOrderSummary}/>
-
 
                             {/* error handling */}
                             <Route render={() => <h1>Page NOT Found</h1>} />

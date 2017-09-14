@@ -7,9 +7,7 @@ class MenuSelection extends React.Component {
         this.handleOnChange = this.handleOnChange.bind(this);
     }
 
-    handleOnChange() {
-
-    }
+    handleOnChange() {}
 
     render() {
         let meals = this.props.meals;
