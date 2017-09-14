@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack",
-    "build:prod": "webpack -p",
-    "server": "webpack-dev-server"
+    "server": "webpack-dev-server",
+    "start": "node server.js"
   },
   "author": "Wole",
   "license": "ISC",
@@ -20,12 +19,12 @@
     "file-loader": "^0.11.1",
     "style-loader": "^0.16.1",
     "url-loader": "^0.5.8",
-    "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
+    "webpack": "^2.3.3",
     "firebase": "^3.9.0",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.8",
