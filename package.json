@@ -12,24 +12,25 @@
   "author": "Wole",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.2",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
-    "css-loader": "^0.28.0",
-    "file-loader": "^0.11.1",
-    "style-loader": "^0.16.1",
-    "url-loader": "^0.5.8",
-    "webpack-dev-server": "^2.4.2",
-    "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
-    "webpack": "^2.3.3",
+    "css-loader": "^0.28.0",
+    "express": "^4.15.4",
+    "file-loader": "^0.11.1",
     "firebase": "^3.9.0",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.8",
     "react-bootstrap-table": "^4.0.3",
     "react-dom": "^15.4.2",
     "react-router-dom": "^4.0.0",
-    "styled-components": "^1.4.5"
+    "style-loader": "^0.16.1",
+    "styled-components": "^1.4.5",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
   }
 }
