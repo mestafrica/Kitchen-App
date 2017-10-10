@@ -23,8 +23,7 @@ class UserHome extends React.Component {
 
     renderMenu(){
         return this.state.orders.map(order => {
-            
-            if(new Date(order.serving_date).toDateString() == new Date().toDateString()){
+            if((new Date(order.serving_date).toDateString() == new Date().toDateString()) && (this.props.user.email === order.user.email) ){
                 return (
                     <div key={order.id} className="lead text-center">
                         <p>Here is your order for today:</p>
@@ -39,7 +38,6 @@ class UserHome extends React.Component {
     }
     render() {
         let user = this.props.user;
-        console.log(this.state.orders)
         return (
             <div className="jumbotron">
                 <p className="lead text-center" >{user? `Hi, ${user.displayName}` : ''},  today is {Time.getToday().toDateString()}</p>
