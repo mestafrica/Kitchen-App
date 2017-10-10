@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-let baseUrl = 'https://mest-kitchen-app.herokuapp.com/v1';
+
 
 let HTTP = {
   get: (url) => {
@@ -19,7 +19,7 @@ let HTTP = {
           .then(function(response) {
             return response.data
           }).catch((err) => {
-            return err;
+            console.log(err)
           })
     );
   }
