@@ -5,35 +5,45 @@ import HTTP from '../../services/http.js'
 
 class UserHome extends React.Component {
 
-    componentDidMount() {
-        console.log("did mount");
-        console.log(this.props);
-
-        //todo: nice to have userid to get user's order
-        //HTTP.get('/orders')
-        //    .then(data => {
-        //        // console.log(data)
-        //        this.setState({
-        //            orders: data
-        //        });
-        //    })
+    constructor() {
+        super();
+        this.state = {
+          orders: []
+        }
+      }
+     
+      componentWillMount() {
+      HTTP.get('/orders')
+      .then(data => {
+        this.setState({
+          orders: data
+        });
+      })
     }
 
+    renderMenu(){
+        return this.state.orders.map(order => {
+            
+            if(new Date(order.serving_date).toDateString() == new Date().toDateString()){
+                return (
+                    <div key={order.id} className="lead text-center">
+                        <p>Here is your order for today:</p>
+                        <p>Breakfast: <strong>{order.breakfast.name}</strong></p>
+                        <p>Lunch: <strong>{order.lunch.name}</strong></p>
+                        <p>Dinner: <strong>{order.lunch.name}</strong></p>
+                    </div>
+                )
+            }
+            
+        })
+    }
     render() {
         let user = this.props.user;
-
+        console.log(this.state.orders)
         return (
             <div className="jumbotron">
                 <p className="lead text-center" >{user? `Hi, ${user.displayName}` : ''},  today is {Time.getToday().toDateString()}</p>
-
-                {/*todo: We might need put today's kitchen information here*/}
-                <div className="lead text-center">
-                    <p>Here is your order for today:</p>
-                    <p>Breakfast:</p>
-                    <p>Lunch:</p>
-                    <p>Dinner:</p>
-                </div>
-
+                {this.renderMenu()}
                 <div>
                     <NavLink to='/current'>
                         <p className="text-center">
