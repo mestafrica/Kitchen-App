@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios'
 import {BrowserRouter, HashRouter} from 'react-router-dom';
 
 import Footer from './components/Footer.jsx';
@@ -16,6 +17,7 @@ import HTTP from './services/http.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
+axios.defaults.baseURL = 'https://mest-kitchen-app.herokuapp.com/v1';
 
 class App extends React.Component {
     constructor() {

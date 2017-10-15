@@ -61,7 +61,6 @@ class Header extends React.Component {
        }
     }
     render() {
-        console.log(this.props)
         return (
 
                 <nav className="navbar navbar-default">
