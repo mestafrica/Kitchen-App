@@ -37,59 +37,31 @@ class Header extends React.Component {
         });
     }
 
-    render() {
-        let user = this.props.user;
-        let isAdmin = user && user.user_type && (user.user_type !== 'eit');
-
-        const Login = () => {
-            return (
-                <div className="navbar-right">
-                    <button onClick={this.handleLogin} className="btn btn-default navbar-btn navbar-right-btn">Login</button>
-                </div>
-            );
-        };
-
-        const Logout = () => {
-            return (
-                <ul className="nav navbar-nav navbar-right">
-                    <li><a href="#">{user.displayName}</a></li>
-                    <li><a href="#">{isAdmin? 'admin' : user.user_type}</a></li>
-                    <li><button onClick={this.handleLogout} className="btn btn-default navbar-btn navbar-right-btn">Logout</button></li>
-                </ul>
-            );
-        };
-
-        const UserMenuList = () => {
-            return (
-                <ul className="nav navbar-nav menu-list">
-                    <li><NavLink activeClassName="active" to="/user">User Home</NavLink></li>
-                    <li><NavLink activeClassName="active" to="/createorders">Create orders</NavLink></li>
-                    <li><NavLink activeClassName="active" to="/usersummary">User summary</NavLink></li>
-                </ul>
-            )
-        };
-
-        const AdminMenuList = () => {
-            return (
+    renderHeader(){
+       if(this.props.user && this.props.user.user_type != 'eit'){
+        return (
+            <ul className="nav navbar-nav menu-list">
+                <li><NavLink activeClassName="active" to="/user">Home</NavLink></li>
                 <li><NavLink activeClassName="active" to="/admin">Admin</NavLink></li>
-            );
-        };
+                <li style={{paddingLeft:'450px'}}><a href="#">{this.props.user.displayName}</a></li>
+                <li>Admin <button onClick={this.handleLogout} className="btn btn-default navbar-btn navbar-right-btn">Logout</button></li>
+            </ul>
+        )
+       } else if (this.props.user){
+        return (
+            <ul className="nav navbar-nav menu-list">
+                <li><NavLink activeClassName="active" to="/user">Home</NavLink></li>
+                <li><NavLink activeClassName="active" to="/createorders">Create orders</NavLink></li>
+                <li><NavLink activeClassName="active" to="/usersummary">User summary</NavLink></li>
+                <li style={{paddingLeft:'450px'}}><a href="#">{this.props.user.displayName}</a></li>
+                <li>eit <button onClick={this.handleLogout} className="btn btn-default navbar-btn navbar-right-btn">Logout</button></li>
+            </ul>
+        )
 
-        const MenuList = (user, isAdmin) => {
-            if (user) {
-                return (
-                    <ul className="nav navbar-nav menu-list">
-                        <li><NavLink activeClassName="active" to="/user">Home</NavLink></li>
-                        <li><NavLink activeClassName="active" to="/createorders">Create orders</NavLink></li>
-                        <li><NavLink activeClassName="active" to="/usersummary">User summary</NavLink></li>
-                        {isAdmin ?<li><NavLink activeClassName="active" to="/admin">Admin</NavLink></li>: ''}
-                    </ul>
-                )
-            } else {
-                return ;
-            }
-        };
-
+       }
+    }
+    render() {
+        console.log(this.props)
         return (
 
                 <nav className="navbar navbar-default">
@@ -99,10 +71,7 @@ class Header extends React.Component {
                                 <img alt="Brand" src={mestKitchenLogoImg} />
                             </a>
                         </div>
-
-                        {<MenuList user={user} isAdmin={isAdmin} />}
-
-                       {user? <Logout/> : <Login />}
+                        {this.renderHeader()}
                     </div>
                 </nav>
 
